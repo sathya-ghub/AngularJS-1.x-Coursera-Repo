@@ -15,7 +15,7 @@
                 $scope.message = "Please enter data first";
             }
             else if (string.length !==0) {
-                var itemLength = string.split(',').length;
+                var itemLength = string.split(','||' ').length;
                 if (itemLength <= 3) {
                     $scope.message = "Enjoy!";
                 }
