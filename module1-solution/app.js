@@ -1,16 +1,28 @@
-(function(){
-"use strict";
+(function () {
+    "use strict";
 
-angular.module('LunchBreak',[])
-.controller('LunchCheckController',LunchCheckController);
-LunchCheckController.$inject = ['$scope'];
+    angular.module('LunchCheck', [])
+        .controller('LunchCheckController', LunchCheckController);
 
-function LunchCheckController($scope){
-    
-    $scope.message = "You entered : " + $scope.names;
-    // $scope.check = function(names){
-    //     var itemLength = names.split(',').length;
-    //     return itemLength;
-    // };
-}
+    LunchCheckController.$inject = ['$scope'];
+
+    function LunchCheckController($scope) {
+
+        $scope.check = function () {
+
+            var string = document.getElementById("lunch-menu").value;
+            if (string.length ==0) {
+                $scope.message = "Please enter data first";
+            }
+            else if (string.length !==0) {
+                var itemLength = string.split(',').length;
+                if (itemLength <= 3) {
+                    $scope.message = "Enjoy!";
+                }
+                else if (itemLength > 3) {
+                    $scope.message = "Too much!";
+                }
+            }
+        }
+    }
 })();
