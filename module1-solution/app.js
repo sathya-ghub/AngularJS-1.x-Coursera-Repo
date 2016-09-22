@@ -10,12 +10,12 @@
 
         $scope.check = function () {
 
-            var string = document.getElementById("lunch-menu").value;
-            if (string.length ==0) {
+            var string = $scope.items;
+            if (string.length == 0) {
                 $scope.message = "Please enter data first";
             }
-            else if (string.length !==0) {
-                var itemLength = string.split(','||' ').length;
+            else if (string.length) {
+                var itemLength = string.split(',').length;
                 if (itemLength <= 3) {
                     $scope.message = "Enjoy!";
                 }
