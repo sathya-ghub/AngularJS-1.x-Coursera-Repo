@@ -10,6 +10,7 @@
 
         $scope.check = function () {
 
+            var pattern = /,\s+[a-zA-Z$]+/g
             var string = $scope.items;
             if (string.length == 0) {
                 $scope.message = "Please enter data first";
