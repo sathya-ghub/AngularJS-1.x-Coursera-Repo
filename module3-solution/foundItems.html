@@ -1,0 +1,19 @@
+<ul>
+	<li ng-repeat="foodItem in items.foundItems" class="foodList">
+		<div style="font-weight:bold">
+			{{foodItem.name}}
+		</div>
+		<br>
+		<div style="font-weight:bold">
+			{{foodItem.short_name}}
+		</div>
+		<br>
+		<div style="color:#286090;font-weight:bold;font-style:italic">
+			{{foodItem.description}}
+		</div>
+		<div style="font-weight:bold;text-align:right">
+			<button ng-click="items.onRemove({index: $index});">Don't want this one!</button>
+		</div>
+	</li>
+</ul>
+<div class="error">Nothing found!</div>
