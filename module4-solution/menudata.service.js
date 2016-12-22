@@ -7,14 +7,14 @@
     .constant('CategoriesPath', "https://davids-restaurant.herokuapp.com/categories.json")
     .constant('ItemPath', "https://davids-restaurant.herokuapp.com/menu_items.json?category=");
 
-  MenuDataService.$inject = ['$http','CategoriesPath','ItemPath'];
-  
-  function MenuDataService() {
+  MenuDataService.$inject = ['$http', '$q', '$timeout', 'CategoriesPath', 'ItemPath'];
+
+  function MenuDataService($http, $q, $timeout, CategoriesPath, ItemPath) {
 
     var service = this;
 
     service.getAllCategories = function () {
-      //store the categories returned in this object
+      // store the categories returned in this object
       var categories = [];
       return $http({
         method: 'GET',
