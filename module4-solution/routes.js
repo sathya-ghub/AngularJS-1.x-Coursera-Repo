@@ -25,9 +25,22 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
             templateUrl:'templates/categories.template.html',
             controller:'CategoryController as categoryList',
             resolve: {
-                categories:['MenuDataService',function(MenuDataService){
+                categories:['MenuDataService',
+                function(MenuDataService){
                     return MenuDataService.getAllCategories();
                 }]
+            }
+        })
+    // Items for the chosen category
+        .state('items',{
+            url:'/items/{categoryId}',
+            templateUrl:'items.template.html',
+            controller:'ItemsController as itemList',
+            resolve: {
+                items:['$stateParams','MenuDataService',
+                function($stateParams,MenuDataService){
+                    return MenuDataService.getItemsForCategories($stateParams.categoryId);
+                }],
             }
         });
     }       

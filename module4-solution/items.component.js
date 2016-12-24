@@ -1,11 +1,11 @@
-(function(){
-'use strict';
+(function () {
+    'use strict';
 
-angular.module('data')
-.component('item',{
-    url:'templates/items.template.html',
-    bindings:{
-        items:'<'
-    }
-})
+    angular.module('data')
+        .component('item', {
+            url: 'templates/items-details.template.html',
+            bindings: {
+                items: '<'
+            }
+        })
 })();

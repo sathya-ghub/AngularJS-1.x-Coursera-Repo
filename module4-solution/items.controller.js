@@ -1,14 +1,13 @@
-(function(){
-'use strict';
+(function () {
+    'use strict';
 
-angular.module('data')
-.controller('ItemsController', ItemsController);
+    angular.module('data')
+        .controller('ItemsController', ItemsController);
 
-ItemController.$inject = ['items'];
+    ItemsController.$inject = ['items'];
 
-function ItemsController(items){
-    var itemsList = this;
-    itemList.items = items;
-}
-
+    function ItemsController(items) {
+        var itemList = this;
+        itemList.items = items;
+    }
 })();

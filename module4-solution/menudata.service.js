@@ -7,25 +7,45 @@
     .constant('CategoriesPath', "https://davids-restaurant.herokuapp.com/categories.json")
     .constant('ItemPath', "https://davids-restaurant.herokuapp.com/menu_items.json?category=");
 
-  MenuDataService.$inject = ['$http', '$q', '$timeout', 'CategoriesPath', 'ItemPath'];
+  MenuDataService.$inject = ['$http', 'CategoriesPath', 'ItemPath'];
 
-  function MenuDataService($http, $q, $timeout, CategoriesPath, ItemPath) {
+  function MenuDataService($http, CategoriesPath, ItemPath) {
 
     var service = this;
 
     service.getAllCategories = function () {
       // store the categories returned in this object
       var categories = [];
+
       return $http({
         method: 'GET',
         url: CategoriesPath
-      }).then(function success(response) {
-        angular.forEach(response.data, function (category) {
-          this.push(category.name);
-        }, categories);
-        console.log(categories);
-        return categories;
-      });
+      })
+        .then(function success(response) {
+          angular.forEach(response.data, function (category) {
+            this.push(category);
+          }, categories);
+
+          return categories;
+        });
+    };
+
+    service.getItemsForCategory = function (categoryShortName) {
+      //store the items for clicked category in this object
+      var categoryItems = [];
+
+      return $http({
+        method: 'GET',
+        url: ItemPath + categoryShortName
+      })
+        .then(function success(response) {
+          angular.forEach(response.data, function (item) {
+            this.push(item);
+          }, categoryItems);
+   
+          return categoryItems;
+        });
     };
   }
+
 })();
