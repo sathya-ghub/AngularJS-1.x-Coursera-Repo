@@ -33,17 +33,18 @@
     service.getItemsForCategory = function (categoryShortName) {
       //store the items for clicked category in this object
       var categoryItems = [];
+      var completeUrl = ItemPath+categoryShortName;
 
       return $http({
         method: 'GET',
-        url: ItemPath + categoryShortName
+        url: completeUrl
       })
         .then(function success(response) {
           angular.forEach(response.data, function (item) {
             this.push(item);
           }, categoryItems);
-   
-          return categoryItems;
+          
+          return categoryItems[0];
         });
     };
   }

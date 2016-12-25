@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     angular.module('data')
@@ -7,6 +7,7 @@
     CategoryController.$inject = ['categories'];
 
     function CategoryController(categories) {
+
         var categoryList = this;
         categoryList.items = categories;
     }

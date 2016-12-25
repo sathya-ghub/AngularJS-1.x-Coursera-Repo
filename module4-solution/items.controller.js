@@ -8,6 +8,11 @@
 
     function ItemsController(items) {
         var itemList = this;
-        itemList.items = items;
+
+        itemList.names = [];
+        
+        for(var i = 0;i<items.length;i++){
+            itemList.names.push(items[i].name);
+        }
     }
 })();

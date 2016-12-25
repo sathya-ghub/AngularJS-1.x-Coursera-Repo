@@ -34,12 +34,12 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     // Items for the chosen category
         .state('items',{
             url:'/items/{categoryId}',
-            templateUrl:'items.template.html',
+            templateUrl:'templates/items.template.html',
             controller:'ItemsController as itemList',
             resolve: {
                 items:['$stateParams','MenuDataService',
                 function($stateParams,MenuDataService){
-                    return MenuDataService.getItemsForCategories($stateParams.categoryId);
+                    return MenuDataService.getItemsForCategory($stateParams.categoryId);
                 }],
             }
         });
