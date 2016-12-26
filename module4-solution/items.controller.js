@@ -10,10 +10,8 @@
 
         var itemList = this;
 
-        itemList.names = [];
-
-        angular.forEach(items, function (item) {
-            this.push(item.name);
-        }, itemList.names);
+        itemList.names = items.map(function (itemObject) {
+            return itemObject.name;
+        });
     }
 })();
