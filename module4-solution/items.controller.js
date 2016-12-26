@@ -7,12 +7,13 @@
     ItemsController.$inject = ['items'];
 
     function ItemsController(items) {
+
         var itemList = this;
 
         itemList.names = [];
-        
-        for(var i = 0;i<items.length;i++){
-            itemList.names.push(items[i].name);
-        }
+
+        angular.forEach(items, function (item) {
+            this.push(item.name);
+        }, itemList.names);
     }
 })();

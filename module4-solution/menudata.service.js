@@ -40,11 +40,11 @@
         url: completeUrl
       })
         .then(function success(response) {
-          angular.forEach(response.data, function (item) {
+          angular.forEach(response.data.menu_items, function (item) {
             this.push(item);
           }, categoryItems);
           
-          return categoryItems[0];
+          return categoryItems;
         });
     };
   }
