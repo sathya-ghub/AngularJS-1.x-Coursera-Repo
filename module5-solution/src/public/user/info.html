@@ -1,0 +1,23 @@
+<div class="container">
+        <!--Display information of user if already registered:-->
+        <div class="row">
+            <div ng-if="infoCtrl.userDetails.length">
+                <legend style="color:#557C3E;text-align:center;font-weight:bold">Your information:</legend>
+                <div class="col-sm-12 col-md-12 col-lg-12" style="text-align:center">
+                    <h3>Hello, {{infoCtrl.userDetails[0].firstName}}</h3>
+                    <h4>Your favorite item is {{infoCtrl.user[0].name}}</h4>
+                    <img ng-src="images/menu/{{infoCtrl.user[0].category_short_name}}/{{infoCtrl.user[0].category_short_name}}.jpg" alt="itemPicture">
+                    <p style="font-style:italic">{{infoCtrl.user[0].description}}</p>
+                </div>
+            </div>
+        </div>
+        <!--Display a message to Sign up and provide a link to the Sign Up state-->
+        <div class="row">
+            <div ng-if="!(infoCtrl.userDetails.length)">
+                <div class="col-sm-12 col-md-12 col-lg-12" style="text-align:center">
+                    <h3>You haven't signed up</h3>
+                    <h4><a ui-sref="public.signup">Click here to to sign up</a></h4>
+                </div>
+            </div>
+        </div>
+</div>
